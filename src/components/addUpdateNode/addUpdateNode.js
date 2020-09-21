@@ -19,28 +19,7 @@ const customStyles = {
         backgroundColor: 'rgba(0,0,0,0.2)'
     }
 };
-const loadingStyle = {
-    content: {
-        top: '47%',
-        left: '50%',
-        right: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        width: '100px',
-        height: '500px',
-        padding: '0px',
-        backgroundColor: 'rgba(0,0,0,0.1)',
-        overflow: 'hidden',
-        color: '#ffffff',
-        textAlign: 'center'
 
-
-    },
-    overlay: {
-        backgroundColor: 'rgba(0,0,0,0.5)'
-    }
-
-}
 
 const AddUpdateNode = (props) => {
     return (
@@ -49,46 +28,36 @@ const AddUpdateNode = (props) => {
                 style={customStyles}
                 contentLabel="Example Modal">
                 <div className='container-fluid'>
-                    <div className='row heading'>
-                        <div className='col-md-12'>
-                            <div className='row'>
-                                <div className="col-md-11">
-                                    <p className="bold">Add Member</p>
-                                </div>
-                                <div className="col-md-1">
-                                    <i className="fas fa-times" onClick={props.closeModal}></i>
-                                </div>
-                            </div>
-
+                    <div className='row mb-3 mt-2'>
+                        <div className="col-md-11">
+                            <h6 className="text-primary"><b>Add Member</b></h6>
+                        </div>
+                        <div className="col-md-1">
+                            <i className="fas fa-times pointer" onClick={props.closeModal}></i>
                         </div>
                     </div>
-
-                </div>
+               </div>
                 <div className='row'>
                     <div className='col-md-11 pl-4'>
-                        <form onSubmit={(e)=>props.handleSubmit(props.member,e)}>
-                        <div className="form-group">
-                                <label>First Name</label>
+                        <form onSubmit={(e) => props.handleSubmit(props.member, e)}>
+                            <div className="form-group">
+                                <label className="text-muted">First Name</label>
                                 <input type="text"
-                                    className="form-control" name="name" id="" aria-describedby="helpId" placeholder="" value={props.value.name} onChange={e=>props.handlechange(e)} />
+                                    className="form-control" name="name" id="" aria-describedby="helpId" placeholder="" value={props.value.name} onChange={e => props.handlechange(e)} required />
                             </div>
-                            <div className="form-check form-check-inline">
-                            <label className="form-check-label" htmlFor="relation">Relation</label>
-                                <input className="form-check-input ml-2" type="radio" name="relation" id="inlineRadio1" value="male" onChange={e=>props.handlechange(e)}/>
-                                <label className="form-check-label" htmlFor="inlineRadio1">Father</label>
+                            <div className="form-group">
+                                <label className="text-muted">Relation</label>
+                                <input type="text"
+                                    className="form-control" name="relation" id="" aria-describedby="helpId" placeholder="" value={props.value.relation} onChange={e => props.handlechange(e)} required />
                             </div>
+                            <br />
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="relation" id="inlineRadio2" value="female" onChange={e=>props.handlechange(e)} />
-                                <label className="form-check-label" htmlFor="inlineRadio2">Mother</label>
-                            </div>    
-                            <br/>                     
-                            <div className="form-check form-check-inline">
-                            <label className="form-check-label" htmlFor="inlineRadio1">Gender</label>
-                                <input className="form-check-input ml-2" type="radio" name="gender" id="inlineRadio1" value="male" onChange={e=>props.handlechange(e)}/>
+                                <label className="form-check-label text-muted" htmlFor="inlineRadio1">Gender</label>
+                                <input className="form-check-input ml-2" type="radio" name="gender" id="inlineRadio1" value="male" onChange={e => props.handlechange(e)} required />
                                 <label className="form-check-label" htmlFor="inlineRadio1">Male</label>
                             </div>
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female" onChange={e=>props.handlechange(e)} />
+                                <input className="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female" onChange={e => props.handlechange(e)} required />
                                 <label className="form-check-label" htmlFor="inlineRadio2">Female</label>
                             </div>
                             <div className="mt-4 mb-4">

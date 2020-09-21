@@ -1,9 +1,8 @@
 import * as actionTypes from './actions';
-import data from '../mockData/familyList'
-import data1 from '../mockData/family';
+import data from '../mockData/family';
 
 const initialState = {
-       familyData: data1
+       familyData: data
 };
 
 const reducer = (state = initialState, action) => {
@@ -13,8 +12,7 @@ const reducer = (state = initialState, action) => {
     console.log("families inside reducer", families)
     switch (action.type) {
         case actionTypes.ADD_FAMILY:
-            families.push(action.familyData[0])
-            console.log("families inside reducer2", families)
+            families.push(action.familyData[0])           
             return {
                 ...state,
                 familyData: families
